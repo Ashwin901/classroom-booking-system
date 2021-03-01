@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+.app{
+    font-family: 'Ubuntu', sans-serif;
+    background-image: url("https://cdn.pixabay.com/photo/2015/10/17/17/14/background-992850_1280.png");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Home page */
+.home-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home-section img{
+    height: 100px;
+    width: 100px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.home-section button{
+    margin: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Auth section */
+
+.auth-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
 }
