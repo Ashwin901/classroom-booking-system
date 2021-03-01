@@ -2,6 +2,7 @@ import React from "react";
 import HomePage from "./HomePage";
 import Register from "./Auth/Register";
 import Login from "./Auth/Login";
+import Dashboard from "./Dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Routes = () => {
@@ -16,6 +17,9 @@ const Routes = () => {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
         </Route>
       </Switch>
     </Router>

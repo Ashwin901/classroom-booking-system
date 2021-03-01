@@ -1,35 +1,51 @@
-.app{
+.app {
     font-family: 'Ubuntu', sans-serif;
     background-image: url("https://cdn.pixabay.com/photo/2015/10/17/17/14/background-992850_1280.png");
-}
-
-/* Home page */
-.home-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     color: white;
 }
 
-.home-section img{
+hr {
+    border: 1px solid white;
+    background-color: white;
+    width: 10rem;
+    margin: 0.5rem 0 0.75rem 0;
+}
+
+/* Home page */
+.home-section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-section img {
     height: 100px;
     width: 100px;
 }
 
-.home-section button{
+.home-section button {
     margin: 1rem;
 }
 
 
 /* Auth section */
 
-.auth-section{
+.auth-section {
     display: flex;
     flex-direction: column;
+    height: 100vh;
     justify-content: center;
     align-items: center;
+}
+
+/* Dashboard section */
+
+.dashboard-section {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
-    color: white;
+    justify-content: center;
+    align-items: center;
 }
