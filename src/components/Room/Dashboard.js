@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, Navbar, Nav } from "react-bootstrap";
-import { auth } from "./Auth/firebase";
+import { auth } from "../Auth/firebase";
+import BookRoom from "./BookRoom";
 
 const Dashboard = () => {
   let history = useHistory();
+  const [bookRoom, setBookRoom] = useState(false);
 
   // We check that if a user is not logged in we redirect it to the home page
   useEffect(() => {
@@ -27,9 +29,9 @@ const Dashboard = () => {
   };
 
   return (
-    <>
+    <div className="dashboard-section">
       <Navbar bg="light" variant="light">
-        <Navbar.Brand href="#home">CRBS</Navbar.Brand>
+        <Navbar.Brand href="#home">CBS</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#rooms">Available rooms</Nav.Link>
@@ -39,11 +41,17 @@ const Dashboard = () => {
           Logout
         </Button>
       </Navbar>
-      <div className="dashboard-section">
-        <h2>Dashboard</h2>
-        <Button variant="light">Book a room</Button>
-      </div>
-    </>
+      {bookRoom ? (
+        <BookRoom handleClose={() => setBookRoom(false)} />
+      ) : (
+        <div className="dashboard-sub-section">
+          <h2>Dashboard</h2>
+          <Button variant="light" onClick={() => setBookRoom(true)}>
+            Book a room
+          </Button>
+        </div>
+      )}
+    </div>
   );
 };
 
