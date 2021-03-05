@@ -26,7 +26,7 @@ const HomePage = () => {
 
   return (
     <div className="home-section">
-      <i class="fa fa-graduation-cap fa-5x"></i>
+      <i className="fa fa-graduation-cap fa-5x"></i>
       <h2>Classroom Booking system</h2>
       <div>
         <Button value="register" onClick={handleClick} variant="dark">
