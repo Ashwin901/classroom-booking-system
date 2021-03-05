@@ -45,8 +45,8 @@ const Dashboard = () => {
         <BookRoom handleClose={() => setBookRoom(false)} />
       ) : (
         <div className="dashboard-sub-section">
-          <h2>Dashboard</h2>
-          <Button variant="light" onClick={() => setBookRoom(true)}>
+          <i className="fa fa-graduation-cap fa-5x"></i>
+          <Button style={{margin:"0.5rem"}} variant="light" onClick={() => setBookRoom(true)}>
             Book a room
           </Button>
         </div>

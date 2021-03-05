@@ -33,6 +33,8 @@ const BookRoom = ({ handleClose }) => {
 
   return (
     <div className="dashboard-sub-section">
+      <h2>Book a room</h2>
+      <hr style={{ marginBottom: "1rem" }} />
       <Form onSubmit={handleSubmit}>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridName">
