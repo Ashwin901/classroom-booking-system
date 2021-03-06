@@ -7,6 +7,7 @@ const BookRoom = ({ handleClose }) => {
   const [event, setEvent] = useState("");
   const [room, setRoom] = useState("");
   const [date, setDate] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [duration, setDuration] = useState("");
 
   const handleSubmit = (e) => {
@@ -14,6 +15,7 @@ const BookRoom = ({ handleClose }) => {
     if (
       !(
         name.length > 0 &&
+        phoneNumber.length > 0 &&
         email.length > 0 &&
         event.length > 0 &&
         room.length > 0 &&
@@ -46,6 +48,18 @@ const BookRoom = ({ handleClose }) => {
               placeholder="Enter name"
             />
           </Form.Group>
+          <Form.Group as={Col} controlId="formGridPhone">
+            <Form.Label>Phone number</Form.Label>
+            <Form.Control
+              value={phoneNumber}
+              type="tel"
+              onChange={(e) => setPhoneNumber(e.currentTarget.value)}
+              placeholder="Enter phone number"
+            />
+          </Form.Group>
+        </Form.Row>
+
+        <Form.Row>
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control
@@ -58,7 +72,7 @@ const BookRoom = ({ handleClose }) => {
         </Form.Row>
 
         <Form.Row>
-          <Form.Group controlId="formGridEvent">
+          <Form.Group as={Col} controlId="formGridEvent">
             <Form.Label>Event</Form.Label>
             <Form.Control
               onChange={(e) => setEvent(e.currentTarget.value)}

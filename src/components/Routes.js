@@ -3,6 +3,7 @@ import HomePage from "./HomePage";
 import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import Dashboard from "./Room/Dashboard";
+import YourRooms from "./Room/YourRooms";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Routes = () => {
@@ -20,6 +21,9 @@ const Routes = () => {
         </Route>
         <Route path="/dashboard">
           <Dashboard />
+        </Route>
+        <Route path="/yourrooms">
+          <YourRooms />
         </Route>
       </Switch>
     </Router>
