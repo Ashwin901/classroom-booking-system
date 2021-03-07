@@ -1,42 +1,22 @@
 {
   "name": "classroom-booking-system",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.0",
-    "bootstrap": "^4.6.0",
-    "firebase": "^8.2.9",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.5.0",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.0"
-  },
+  "version": "1.0.0",
+  "description": "The project titled ”Classroom Booking System” primarily aims to provide a platform for faculties, event organizer, club heads or anyone who wants to hold an extra class, hold an event , a club meet etc and needs to book any rooms for holding such event/events after normal working hours.",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start":"node backend/server"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashwin901/classroom-booking-system.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashwin901/classroom-booking-system/issues"
+  },
+  "homepage": "https://github.com/Ashwin901/classroom-booking-system#readme",
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
