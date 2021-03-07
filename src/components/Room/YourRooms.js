@@ -12,8 +12,8 @@ const YourRooms = () => {
       email: "ash@email.com",
       phone: "12345678",
       event: "Git and Github",
-      date: "21/03/2021",
-      duration: "2hrs",
+      date: "2021-01-21",
+      duration: 2,
     },
     {
       roomNumber: "A102",
@@ -21,8 +21,8 @@ const YourRooms = () => {
       email: "ash@email.com",
       phone: "12345678",
       event: "Git and Github",
-      date: "21/03/2021",
-      duration: "2hrs",
+      date: "2021-01-21",
+      duration: 2,
     },
   ];
 

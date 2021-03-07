@@ -81,3 +81,13 @@ hr {
     color: black;
     margin: 0.5rem;
 }
+
+/* update room section */
+
+.update-section{
+    height: 100vh;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+}

@@ -1,10 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
 const RoomCard = ({ room }) => {
+  let history = useHistory();
+
   const handleUpdate = () => {
     //Add update room logic here
-    alert("update room");
+    history.push({ pathname: "/updateRoom", state: room });
   };
 
   const handleDelete = () => {
