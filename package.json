@@ -4,7 +4,14 @@
   "description": "The project titled ”Classroom Booking System” primarily aims to provide a platform for faculties, event organizer, club heads or anyone who wants to hold an extra class, hold an event , a club meet etc and needs to book any rooms for holding such event/events after normal working hours.",
   "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node backend/server"
+=======
+    "start": "node backend/server",
+    "server": "node backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+>>>>>>> 96b3fe373c7ff60cb13c06d4aad8c4d9a28bcd31
   },
   "repository": {
     "type": "git",
@@ -17,9 +24,16 @@
   },
   "homepage": "https://github.com/Ashwin901/classroom-booking-system#readme",
   "dependencies": {
+<<<<<<< HEAD
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mysql": "^2.18.1"
+=======
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+>>>>>>> 96b3fe373c7ff60cb13c06d4aad8c4d9a28bcd31
   }
 }
