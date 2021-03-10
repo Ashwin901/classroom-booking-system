@@ -13,6 +13,7 @@ const YourRooms = () => {
       const rooms = await getRooms();
       setRooms(rooms);
     }
+    getData();
   });
 
   return (
