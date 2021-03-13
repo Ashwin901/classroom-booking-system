@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../Auth/firebase";
-import { Button, Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 const Header = () => {
   let history = useHistory();
@@ -15,33 +15,22 @@ const Header = () => {
     });
   });
 
-  const handleLogout = async () => {
-    if (window.confirm("Are you sure you want to logout?")) {
-      try {
-        await auth.signOut();
-        history.push("/");
-      } catch (err) {
-        alert(err.message);
-      }
-    }
-  };
-
   return (
     <Navbar bg="light" variant="light">
-      <Navbar.Brand href="#home">CBS</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/dashboard">
+        CBS
+      </Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav className="nav-link" as={Link} to="/dashboard">
-          Home
-        </Nav>
         <Nav.Link href="#rooms">Available rooms</Nav.Link>
         <Nav.Link href="#events">Booked rooms</Nav.Link>
         <Nav className="nav-link" as={Link} to="/yourrooms">
           Your rooms
         </Nav>
       </Nav>
-      <Button variant="dark" onClick={handleLogout}>
-        Logout
-      </Button>
+
+      <Link to="/profile">
+        <i style={{ color: "black" }} className="fa fa-user fa-2x"></i>
+      </Link>
     </Navbar>
   );
 };

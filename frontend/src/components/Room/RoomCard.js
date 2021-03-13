@@ -2,17 +2,12 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
-const RoomCard = ({ room }) => {
+const RoomCard = ({ room, handleDelete,key }) => {
   let history = useHistory();
 
   const handleUpdate = () => {
     //Add update room logic here
     history.push({ pathname: "/updateRoom", state: room });
-  };
-
-  const handleDelete = () => {
-    //Add delete room logic here
-    alert("cancel room");
   };
 
   return (
@@ -42,7 +37,7 @@ const RoomCard = ({ room }) => {
         >
           Update
         </Button>
-        <Button onClick={handleDelete} size="sm" variant="danger">
+        <Button onClick={() => handleDelete(room)} size="sm" variant="danger">
           Cancel
         </Button>
       </Card.Body>

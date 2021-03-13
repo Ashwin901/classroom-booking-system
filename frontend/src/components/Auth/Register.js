@@ -17,11 +17,19 @@ const Register = () => {
     try {
       await auth.createUserWithEmailAndPassword(email, password);
       setLoading(false);
-      history.push("/dashboard");
+      saveName();
     } catch (err) {
       setLoading(false);
       alert(err.message);
     }
+  };
+
+  const saveName = async () => {
+    const user = auth.currentUser;
+    await user.updateProfile({
+      displayName: name,
+    });
+    history.push("/dashboard");
   };
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Col, Button } from "react-bootstrap";
+import { bookRoom, updateRoom } from "../services";
 import "../../App.css";
 
 const RoomForm = ({ roomData, update, handleClose }) => {
@@ -13,7 +14,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
     update ? roomData.duration.toString() : ""
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
@@ -29,13 +30,24 @@ const RoomForm = ({ roomData, update, handleClose }) => {
     ) {
       alert("Please will all the details");
     } else {
-      console.log(name, " ", email, " ", date, " ", event, " ", room);
+      const roomDetails = {
+        name,
+        email,
+        event,
+        room,
+        date,
+        phoneNumber,
+        duration,
+      };
       if (update) {
         //Update data in the database here
+        await updateRoom(roomDetails);
+        alert("Room successfully updated");
         console.log("update");
       } else {
         //Add data to the db here
-        console.log("submit");
+        await bookRoom(roomDetails);
+        alert("Room successfully booked")
       }
 
       handleClose();

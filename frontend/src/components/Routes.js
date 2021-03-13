@@ -5,6 +5,8 @@ import Login from "./Auth/Login";
 import Dashboard from "./Room/Dashboard";
 import YourRooms from "./Room/YourRooms";
 import UpdateRoom from "./Room/UpdateRoom";
+import ProfilePage from "./Auth/ProfilePage";
+import UpdatePassword from "./Auth/UpdatePassword";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Routes = () => {
@@ -28,6 +30,12 @@ const Routes = () => {
         </Route>
         <Route path="/updateRoom">
           <UpdateRoom />
+        </Route>
+        <Route path="/profile">
+          <ProfilePage />
+        </Route>
+        <Route path="/changePassword">
+          <UpdatePassword/>
         </Route>
       </Switch>
     </Router>
