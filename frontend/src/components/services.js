@@ -1,12 +1,9 @@
 import axios from "axios";
-import {auth} from "./Auth/firebase";
-
 const url = "http://localhost:5000";
 
-const getRooms = async (email) => {
+const getRooms = async (name) => {
   try {
-    console.log(email);
-    const data = await axios.get(`${url}/api/rooms`);
+    const data = await axios.get(`${url}/api/rooms/bookedRooms/${name}`);
     return data.data;
   } catch (e) {
     console.log(e);
@@ -15,8 +12,7 @@ const getRooms = async (email) => {
 
 const bookRoom = async (roomDetails) => {
   try {
-    // const data = await axios.post(`${url}/api/bookRoom`);
-    console.log(roomDetails);
+    await axios.post(`${url}/api/rooms/bookRoom`, roomDetails);
   } catch (e) {
     console.log(e);
   }
@@ -31,4 +27,4 @@ const updateRoom = async (roomDetails) => {
   }
 };
 
-export { getRooms, bookRoom, updateRoom};
+export { getRooms, bookRoom, updateRoom };

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Form, Col, Button } from "react-bootstrap";
 import { bookRoom, updateRoom } from "../services";
+import { auth } from "../Auth/firebase";
 import "../../App.css";
 
 const RoomForm = ({ roomData, update, handleClose }) => {
-  const [name, setName] = useState(update ? roomData.name : "");
-  const [email, setEmail] = useState(update ? roomData.email : "");
   const [event, setEvent] = useState(update ? roomData.event : "");
-  const [room, setRoom] = useState(update ? roomData.roomNumber : "");
-  const [date, setDate] = useState(update ? roomData.date : "");
-  const [phoneNumber, setPhoneNumber] = useState(update ? roomData.phone : "");
+  const [room, setRoom] = useState(update ? roomData.room_number : "");
+  const event_date = new Date(roomData.event_date);
+  const [date, setDate] = useState(update ? event_date:"");
+  const [phoneNumber, setPhoneNumber] = useState(update ? roomData.phone_number: "");
   const [duration, setDuration] = useState(
     update ? roomData.duration.toString() : ""
   );
@@ -19,9 +19,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
 
     if (
       !(
-        name.length > 0 &&
         phoneNumber.length > 0 &&
-        email.length > 0 &&
         event.length > 0 &&
         room.length > 0 &&
         date.length > 0 &&
@@ -30,6 +28,9 @@ const RoomForm = ({ roomData, update, handleClose }) => {
     ) {
       alert("Please will all the details");
     } else {
+      const user = await auth.currentUser;
+      const name = user.displayName;
+      const email = user.email;
       const roomDetails = {
         name,
         email,
@@ -56,15 +57,6 @@ const RoomForm = ({ roomData, update, handleClose }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Row>
-        <Form.Group as={Col} controlId="formGridName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            onChange={(e) => setName(e.currentTarget.value)}
-            value={name}
-            type="text"
-            placeholder="Enter name"
-          />
-        </Form.Group>
         <Form.Group as={Col} controlId="formGridPhone">
           <Form.Label>Phone number</Form.Label>
           <Form.Control
@@ -75,19 +67,6 @@ const RoomForm = ({ roomData, update, handleClose }) => {
           />
         </Form.Group>
       </Form.Row>
-
-      <Form.Row>
-        <Form.Group as={Col} controlId="formGridEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            value={email}
-            type="email"
-            onChange={(e) => setEmail(e.currentTarget.value)}
-            placeholder="Enter email"
-          />
-        </Form.Group>
-      </Form.Row>
-
       <Form.Row>
         <Form.Group as={Col} controlId="formGridEvent">
           <Form.Label>Event</Form.Label>

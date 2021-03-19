@@ -3,6 +3,7 @@ import { Row } from "react-bootstrap";
 import Header from "./Header";
 import RoomCard from "./RoomCard";
 import { getRooms } from "../services";
+import { auth } from "../Auth/firebase";
 import "../../App.css";
 
 const YourRooms = () => {
@@ -10,11 +11,12 @@ const YourRooms = () => {
 
   useEffect(() => {
     async function getData() {
-      const rooms = await getRooms("");
+      const user = await auth.currentUser;
+      const rooms = await getRooms(user ? user.displayName : "");
       setRooms(rooms);
     }
     getData();
-  }, []);
+  }, [rooms]);
 
   const handleRoomDelete = (deleteRoom) => {
     if (window.confirm("Are you sure you want to cancel the room?")) {
@@ -32,11 +34,7 @@ const YourRooms = () => {
           {rooms ? (
             rooms.map((room, i) => {
               return (
-                <RoomCard
-                  key={i}
-                  room={room}
-                  handleDelete={handleRoomDelete}
-                />
+                <RoomCard key={i} room={room} handleDelete={handleRoomDelete} />
               );
             })
           ) : (
