@@ -12,6 +12,15 @@ const getRooms = async (name) => {
   }
 };
 
+const getBookedRooms = async () => {
+  try {
+    const data = await axios.get(`${url}/api/rooms/bookedRooms`);
+    return data.data;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 const bookRoom = async (roomDetails) => {
   try {
     await axios.post(`${url}/api/rooms/bookRoom`, roomDetails);
@@ -29,13 +38,13 @@ const updateRoom = async (roomDetails) => {
   }
 };
 
-const deleteRoom = async(booking_id) => {
-  try{
-   const data = await axios.delete(`${url}/api/rooms/deleteRoom/${booking_id}`);
-   return data;
-  }catch(e){
-   console.log(e);
+const deleteRoom = async (booking_id) => {
+  try {
+    const data = await axios.delete(`${url}/api/rooms/deleteRoom/${booking_id}`);
+    return data;
+  } catch (e) {
+    console.log(e);
   }
 }
 
-export { getRooms, bookRoom, updateRoom, deleteRoom};
+export { getRooms, bookRoom, updateRoom, deleteRoom, getBookedRooms};

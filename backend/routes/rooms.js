@@ -4,8 +4,8 @@ const Router = express.Router();
 
 const db = require("../connection");
 
-Router.get("/", (req, res) => {
-  db.query("SELECT * FROM rooms", (err, rows, fields) => {
+Router.get("/bookedRooms", (req, res) => {
+  db.query("SELECT * FROM booking", (err, rows, fields) => {
     if (!err) {
       res.status(200).send(rows);
     } else {

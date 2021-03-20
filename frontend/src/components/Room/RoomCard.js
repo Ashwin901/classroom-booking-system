@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
-const RoomCard = ({ room, handleDelete }) => {
+const RoomCard = ({ room, handleDelete,book}) => {
   let history = useHistory();
   const date = new Date(room.event_date);
   const handleUpdate = () => {
@@ -29,21 +29,24 @@ const RoomCard = ({ room, handleDelete }) => {
           Date: {date.toLocaleDateString()} <br />
           Duration: {room.duration} <br />
         </Card.Text>
-        <Button
+        {book ? "" : <Button
           onClick={handleUpdate}
           style={{ marginRight: "0.5rem" }}
           size="sm"
           variant="dark"
         >
           Update
-        </Button>
-        <Button
-          onClick={() => handleDelete(room.booking_id)}
+        </Button>}
+
+        {book ? "" : <Button
+          onClick={() => handleDelete ? handleDelete(room.booking_id) : console.log("wait")}
           size="sm"
           variant="danger"
         >
           Cancel
-        </Button>
+        </Button>}
+        
+        
       </Card.Body>
     </Card>
   );
