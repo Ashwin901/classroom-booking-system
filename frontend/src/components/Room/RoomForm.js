@@ -7,8 +7,7 @@ import "../../App.css";
 const RoomForm = ({ roomData, update, handleClose }) => {
   const [event, setEvent] = useState(update ? roomData.event : "");
   const [room, setRoom] = useState(update ? roomData.room_number : "");
-  const event_date = new Date(roomData.event_date);
-  const [date, setDate] = useState(update ? event_date:"");
+  const [date, setDate] = useState(update ? roomData.event_date:"");
   const [phoneNumber, setPhoneNumber] = useState(update ? roomData.phone_number: "");
   const [duration, setDuration] = useState(
     update ? roomData.duration.toString() : ""

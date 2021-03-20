@@ -37,7 +37,11 @@ const RoomCard = ({ room, handleDelete }) => {
         >
           Update
         </Button>
-        <Button onClick={() => handleDelete(room)} size="sm" variant="danger">
+        <Button
+          onClick={() => handleDelete(room.booking_id)}
+          size="sm"
+          variant="danger"
+        >
           Cancel
         </Button>
       </Card.Body>

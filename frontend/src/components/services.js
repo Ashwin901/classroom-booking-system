@@ -2,11 +2,13 @@ import axios from "axios";
 const url = "http://localhost:5000";
 
 const getRooms = async (name) => {
-  try {
-    const data = await axios.get(`${url}/api/rooms/bookedRooms/${name}`);
-    return data.data;
-  } catch (e) {
-    console.log(e);
+  if (name.length > 0) {
+    try {
+      const data = await axios.get(`${url}/api/rooms/bookedRooms/${name}`);
+      return data.data;
+    } catch (e) {
+      console.log(e);
+    }
   }
 };
 
@@ -27,4 +29,13 @@ const updateRoom = async (roomDetails) => {
   }
 };
 
-export { getRooms, bookRoom, updateRoom };
+const deleteRoom = async(booking_id) => {
+  try{
+   const data = await axios.delete(`${url}/api/rooms/deleteRoom/${booking_id}`);
+   return data;
+  }catch(e){
+   console.log(e);
+  }
+}
+
+export { getRooms, bookRoom, updateRoom, deleteRoom};

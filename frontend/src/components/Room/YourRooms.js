@@ -2,26 +2,33 @@ import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import Header from "./Header";
 import RoomCard from "./RoomCard";
-import { getRooms } from "../services";
+import { getRooms, deleteRoom } from "../services";
 import { auth } from "../Auth/firebase";
 import "../../App.css";
 
 const YourRooms = () => {
   const [rooms, setRooms] = useState([]);
-
+  const [user, setUser] = useState(auth.currentUser);
   useEffect(() => {
+    auth.onAuthStateChanged((currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        console.log("User not logged in");
+      }
+    });
     async function getData() {
-      const user = await auth.currentUser;
-      const rooms = await getRooms(user ? user.displayName : "");
-      setRooms(rooms);
+      const data = await getRooms(user ? user.displayName : "");
+      setRooms(data);
     }
     getData();
-  }, [rooms]);
+  }, [user]);
 
-  const handleRoomDelete = (deleteRoom) => {
+  const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to cancel the room?")) {
-      const updateRooms = rooms.filter((room) => room !== deleteRoom);
-      setRooms(updateRooms);
+      await deleteRoom(id);
+      const data = await getRooms(user ? user.displayName : "");
+      setRooms(data);
     }
   };
 
@@ -34,7 +41,7 @@ const YourRooms = () => {
           {rooms ? (
             rooms.map((room, i) => {
               return (
-                <RoomCard key={i} room={room} handleDelete={handleRoomDelete} />
+                <RoomCard key={i} room={room} handleDelete={handleDelete} />
               );
             })
           ) : (
