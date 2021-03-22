@@ -16,13 +16,13 @@ const RoomCard = ({ room, handleDelete,book}) => {
       <hr />
       <Card.Body>
         <Card.Title className="title">
-          Room number: {room.room_number}
+          Room number: {room.roomNumber}
         </Card.Title>
         <Card.Text>
           Name: {room.name}
           <br />
           Email: {room.email} <br />
-          Phone number: {room.phone_number}
+          Phone number: {room.phoneNumber}
           <br />
           Event: {room.event}
           <br />
@@ -39,7 +39,7 @@ const RoomCard = ({ room, handleDelete,book}) => {
         </Button>}
 
         {book ? "" : <Button
-          onClick={() => handleDelete ? handleDelete(room.booking_id) : console.log("wait")}
+          onClick={() => handleDelete ? handleDelete(room.room_id) : console.log("wait")}
           size="sm"
           variant="danger"
         >

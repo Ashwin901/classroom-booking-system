@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Col, Button } from "react-bootstrap";
-import { bookRoom, updateRoom } from "../services";
+import { bookRoom, getRoomNumbers, updateRoom } from "../services";
 import { auth } from "../Auth/firebase";
 import "../../App.css";
 
 const RoomForm = ({ roomData, update, handleClose }) => {
   const [event, setEvent] = useState(update ? roomData.event : "");
-  const [room, setRoom] = useState(update ? roomData.room_number : "");
-  const [date, setDate] = useState(update ? roomData.event_date:"");
-  const [phoneNumber, setPhoneNumber] = useState(update ? roomData.phone_number: "");
+  const [room, setRoom] = useState(update ? roomData.roomNumber : "");
+  const [date, setDate] = useState(update ? roomData.event_date : "");
+  const [phoneNumber, setPhoneNumber] = useState(
+    update ? roomData.phoneNumber : ""
+  );
   const [duration, setDuration] = useState(
     update ? roomData.duration.toString() : ""
   );
+  const [availableRooms, setAvailableRooms] = useState([]);
+  const [room_id, setRId] = useState(0);
 
+  useEffect(() => {
+    async function getData() {
+      const data = await getRoomNumbers();
+      setAvailableRooms(data);
+    }
+
+    getData();
+  }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,6 +46,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
         name,
         email,
         event,
+        room_id,
         room,
         date,
         phoneNumber,
@@ -47,7 +60,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
       } else {
         //Add data to the db here
         await bookRoom(roomDetails);
-        alert("Room successfully booked")
+        alert("Room successfully booked");
       }
 
       handleClose();
@@ -81,13 +94,32 @@ const RoomForm = ({ roomData, update, handleClose }) => {
         <Form.Group as={Col} controlId="formGridRoom">
           <Form.Label>Rooms</Form.Label>
           <Form.Control
-            onChange={(e) => setRoom(e.currentTarget.value)}
+            onChange={(e) => {
+              const data = JSON.parse(e.currentTarget.value);
+              setRId(data.room_id);
+              setRoom(data.roomNumber);
+            }}
             as="select"
             value={room}
           >
-            <option hidden>Select a room</option>
-            <option>A101</option>
-            <option>A102</option>
+            {update ? (
+              <option selected="true">{room}</option>
+            ) : (
+              <>
+                <option hidden>Select a room</option>
+                {availableRooms ? (
+                  availableRooms.map((room, i) => {
+                    return (
+                      <option key={i} value={JSON.stringify(room)}>
+                        {room.roomNumber}
+                      </option>
+                    );
+                  })
+                ) : (
+                  <p></p>
+                )}
+              </>
+            )}
           </Form.Control>
         </Form.Group>
       </Form.Row>

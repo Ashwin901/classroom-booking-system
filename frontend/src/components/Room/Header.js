@@ -21,7 +21,9 @@ const Header = () => {
         CBS
       </Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link href="#rooms">Available rooms</Nav.Link>
+        <Nav className="nav-link" as={Link} to="/availableRooms">
+          Available Rooms
+        </Nav>
         <Nav className="nav-link" as={Link} to="/bookedRooms">
           Booked Rooms
         </Nav>

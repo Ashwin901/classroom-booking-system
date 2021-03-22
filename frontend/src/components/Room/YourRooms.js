@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import Header from "./Header";
 import RoomCard from "./RoomCard";
-import { getRooms, deleteRoom } from "../services";
+import { getUserRooms, deleteRoom } from "../services";
 import { auth } from "../Auth/firebase";
 import "../../App.css";
 
@@ -18,7 +18,7 @@ const YourRooms = () => {
       }
     });
     async function getData() {
-      const data = await getRooms(user ? user.displayName : "");
+      const data = await getUserRooms(user ? user.displayName : "");
       setRooms(data);
     }
     getData();
@@ -27,7 +27,7 @@ const YourRooms = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to cancel the room?")) {
       await deleteRoom(id);
-      const data = await getRooms(user ? user.displayName : "");
+      const data = await getUserRooms(user ? user.displayName : "");
       setRooms(data);
     }
   };

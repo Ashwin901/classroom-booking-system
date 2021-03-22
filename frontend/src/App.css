@@ -111,3 +111,12 @@ hr {
     justify-content:center;
     align-items: center;
 }
+
+/* Available rooms section */
+
+.available_rooms_div{
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+    align-items: center;
+}

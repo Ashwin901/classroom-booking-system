@@ -1,7 +1,7 @@
 import axios from "axios";
 const url = "http://localhost:5000";
 
-const getRooms = async (name) => {
+const getUserRooms = async (name) => {
   if (name.length > 0) {
     try {
       const data = await axios.get(`${url}/api/rooms/bookedRooms/${name}`);
@@ -19,7 +19,7 @@ const getBookedRooms = async () => {
   } catch (e) {
     console.log(e);
   }
-}
+};
 
 const bookRoom = async (roomDetails) => {
   try {
@@ -40,11 +40,39 @@ const updateRoom = async (roomDetails) => {
 
 const deleteRoom = async (booking_id) => {
   try {
-    const data = await axios.delete(`${url}/api/rooms/deleteRoom/${booking_id}`);
+    const data = await axios.delete(
+      `${url}/api/rooms/deleteRoom/${booking_id}`
+    );
     return data;
   } catch (e) {
     console.log(e);
   }
-}
+};
 
-export { getRooms, bookRoom, updateRoom, deleteRoom, getBookedRooms};
+const getAvailableRooms = async () => {
+  try {
+    const data = await axios.get(`${url}/api/rooms/availableRooms`);
+    return data.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const getRoomNumbers = async () => {
+  try {
+    const data = await axios.get(`${url}/api/rooms/roomNumbers`);
+    return data.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export {
+  getUserRooms,
+  bookRoom,
+  updateRoom,
+  deleteRoom,
+  getBookedRooms,
+  getAvailableRooms,
+  getRoomNumbers
+};
