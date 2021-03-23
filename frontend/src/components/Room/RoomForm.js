@@ -8,6 +8,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
   const [event, setEvent] = useState(update ? roomData.event : "");
   const [room, setRoom] = useState(update ? roomData.roomNumber : "");
   const [date, setDate] = useState(update ? roomData.event_date : "");
+
   const [phoneNumber, setPhoneNumber] = useState(
     update ? roomData.phoneNumber : ""
   );
@@ -15,8 +16,6 @@ const RoomForm = ({ roomData, update, handleClose }) => {
     update ? roomData.duration.toString() : ""
   );
   const [availableRooms, setAvailableRooms] = useState([]);
-  const [room_id, setRId] = useState(0);
-
   useEffect(() => {
     async function getData() {
       const data = await getRoomNumbers();
@@ -25,6 +24,13 @@ const RoomForm = ({ roomData, update, handleClose }) => {
 
     getData();
   }, []);
+
+  const findId = (currentRoom) => {
+    if (currentRoom.roomNumber === room) {
+      return currentRoom;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,6 +45,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
     ) {
       alert("Please will all the details");
     } else {
+      const d = await availableRooms.find(findId);
       const user = await auth.currentUser;
       const name = user.displayName;
       const email = user.email;
@@ -46,7 +53,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
         name,
         email,
         event,
-        room_id,
+        room_id: d.room_id,
         room,
         date,
         phoneNumber,
@@ -66,6 +73,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
       handleClose();
     }
   };
+
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Row>
@@ -94,11 +102,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
         <Form.Group as={Col} controlId="formGridRoom">
           <Form.Label>Rooms</Form.Label>
           <Form.Control
-            onChange={(e) => {
-              const data = JSON.parse(e.currentTarget.value);
-              setRId(data.room_id);
-              setRoom(data.roomNumber);
-            }}
+            onChange={(e) => setRoom(e.currentTarget.value)}
             as="select"
             value={room}
           >
@@ -108,15 +112,11 @@ const RoomForm = ({ roomData, update, handleClose }) => {
               <>
                 <option hidden>Select a room</option>
                 {availableRooms ? (
-                  availableRooms.map((room, i) => {
-                    return (
-                      <option key={i} value={JSON.stringify(room)}>
-                        {room.roomNumber}
-                      </option>
-                    );
+                  availableRooms.map((currentRoom, i) => {
+                    return <option key={i}>{currentRoom.roomNumber}</option>;
                   })
                 ) : (
-                  <p></p>
+                  <option></option>
                 )}
               </>
             )}
