@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import RoomCard from "./RoomCard";
 import Header from "./Header";
 import "../../App.css";
 import { getAvailableRooms } from "../services";
@@ -22,15 +21,8 @@ const AvailableRooms = () => {
       <Header />
       <div className="available_rooms_div">
         <h2 style={{ marginTop: "1rem" }}>Available Rooms</h2>
-        <div
-          style={{
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <hr style={{ marginBottom: "1rem" }} />
+        <div className="available_sub_div">
           {rooms ? (
             rooms.map((room, i) => {
               return (
@@ -41,8 +33,10 @@ const AvailableRooms = () => {
                     <Card.Text>{room.dept_name}</Card.Text>
                     <Card.Text>
                       This room is available for students and clubs to conduct
-                      and participate in activities.<br/>
-                      All the details must be provided before booking a room.<br/>
+                      and participate in activities.
+                      <br />
+                      All the details must be provided before booking a room.
+                      <br />
                       If any misconduct is observed strict action will be taken.
                     </Card.Text>
                     <Button variant="primary">Book room</Button>

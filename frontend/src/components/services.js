@@ -31,8 +31,8 @@ const bookRoom = async (roomDetails) => {
 
 const updateRoom = async (roomDetails) => {
   try {
-    // const data = await axios.post(`${url}/api/updateRoom`);
-    console.log(roomDetails);
+    const data = await axios.post(`${url}/api/rooms/updateRoom`, roomDetails);
+    return data;
   } catch (e) {
     console.log(e);
   }

@@ -11,7 +11,7 @@ hr {
     margin: 0.5rem 0 0.75rem 0;
 }
 
-.title{
+.title {
     font-weight: bold;
 }
 
@@ -44,19 +44,19 @@ hr {
     align-items: center;
 }
 
-.profile-section{
+.profile-section {
     height: 95vh;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.profile-image{
+.profile-image {
     margin-bottom: 2rem;
 }
 
-.update-pwd-section{
+.update-pwd-section {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -66,57 +66,65 @@ hr {
 
 /* Dashboard section */
 
-.dashboard-section{
+.dashboard-section {
     height: 100vh;
 }
 
 .dashboard-sub-section {
     display: flex;
     flex-direction: column;
-    height:90%;
+    height: 90%;
     justify-content: center;
     align-items: center;
 }
 
-.nav-link{
+.nav-link {
     color: white;
 }
 
 /* your room section */
-.your-room-section{
+.your-room-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     height: 95vh;
 }
 
-.room-card-div{
+.room-card-div {
     display: flex;
-    flex-direction:row;
-    justify-content:space-between
+    flex-direction: row;
+    justify-content: space-between
 }
 
-.room-card{
+.room-card {
     color: black;
     margin: 0.5rem;
 }
 
 /* update room section */
 
-.update-section{
+.update-section {
     height: 100vh;
     display: flex;
-    flex-direction:column;
-    justify-content:center;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 /* Available rooms section */
 
-.available_rooms_div{
+.available_rooms_div {
     display: flex;
     flex-direction: column;
     min-height: 95vh;
+    align-items: center;
+}
+
+.available_sub_div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }

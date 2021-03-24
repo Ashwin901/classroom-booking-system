@@ -22,6 +22,7 @@ const BookedRooms = () => {
       <Header />
       <div className="your-room-section">
         <h2>Booked Rooms</h2>
+        <hr style={{ marginBottom: "1rem" }} />
         <Row>
           {rooms ? (
             rooms.map((room, i) => {

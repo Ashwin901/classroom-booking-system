@@ -74,4 +74,17 @@ Router.get("/roomNumbers", (req, res) => {
   });
 });
 
+Router.post("/updateRoom", (req, res) => {
+  const roomDetails = req.body;
+  console.log(roomDetails);
+  const query = `UPDATE booking set room_id="${roomDetails.room_id}",roomNumber="${roomDetails.room}",phoneNumber="${roomDetails.phoneNumber}",event="${roomDetails.event}",duration="${roomDetails.duration}",event_date="${roomDetails.date}"  where room_id="${roomDetails.previous_rid}"`;
+  db.query(query, (err, rows, fields) => {
+    if (!err) {
+      res.status(200).send();
+    } else {
+      throw err;
+    }
+  });
+});
+
 module.exports = Router;

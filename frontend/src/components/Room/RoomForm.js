@@ -45,7 +45,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
     ) {
       alert("Please will all the details");
     } else {
-      const d = await availableRooms.find(findId);
+      const d = availableRooms.find(findId);
       const user = await auth.currentUser;
       const name = user.displayName;
       const email = user.email;
@@ -53,7 +53,8 @@ const RoomForm = ({ roomData, update, handleClose }) => {
         name,
         email,
         event,
-        room_id: d.room_id,
+        room_id: d ? d.room_id : roomData.room_id,
+        previous_rid: roomData ? roomData.room_id : 0,
         room,
         date,
         phoneNumber,
@@ -61,9 +62,9 @@ const RoomForm = ({ roomData, update, handleClose }) => {
       };
       if (update) {
         //Update data in the database here
-        await updateRoom(roomDetails);
+        const data = await updateRoom(roomDetails);
+        console.log(data);
         alert("Room successfully updated");
-        console.log("update");
       } else {
         //Add data to the db here
         await bookRoom(roomDetails);
@@ -107,18 +108,16 @@ const RoomForm = ({ roomData, update, handleClose }) => {
             value={room}
           >
             {update ? (
-              <option selected="true">{room}</option>
+              <option>{room}</option>
             ) : (
-              <>
-                <option hidden>Select a room</option>
-                {availableRooms ? (
-                  availableRooms.map((currentRoom, i) => {
-                    return <option key={i}>{currentRoom.roomNumber}</option>;
-                  })
-                ) : (
-                  <option></option>
-                )}
-              </>
+              <option hidden>Select a room</option>
+            )}
+            {availableRooms ? (
+              availableRooms.map((currentRoom, i) => {
+                return <option key={i}>{currentRoom.roomNumber}</option>;
+              })
+            ) : (
+              <option></option>
             )}
           </Form.Control>
         </Form.Group>

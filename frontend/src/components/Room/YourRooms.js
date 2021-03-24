@@ -37,6 +37,7 @@ const YourRooms = () => {
       <Header />
       <div className="your-room-section">
         <h2>Your Rooms</h2>
+        <hr style={{ marginBottom: "1rem" }} />
         <Row>
           {rooms ? (
             rooms.map((room, i) => {
