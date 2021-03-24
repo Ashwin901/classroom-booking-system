@@ -1,6 +1,15 @@
 import axios from "axios";
 const url = "http://localhost:5000";
 
+const addUser = async (name) => {
+  try {
+    const data = await axios.get(`${url}/user/${name}`);
+    return data.data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 const getUserRooms = async (name) => {
   if (name.length > 0) {
     try {
@@ -74,5 +83,6 @@ export {
   deleteRoom,
   getBookedRooms,
   getAvailableRooms,
-  getRoomNumbers
+  getRoomNumbers,
+  addUser
 };

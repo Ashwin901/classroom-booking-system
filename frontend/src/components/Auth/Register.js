@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Button, Spinner } from "react-bootstrap";
+import { addUser } from "../services";
 import { auth } from "./firebase";
 
 const Register = () => {
@@ -29,6 +30,7 @@ const Register = () => {
     await user.updateProfile({
       displayName: name,
     });
+    await addUser(name);
     history.push("/dashboard");
   };
 
