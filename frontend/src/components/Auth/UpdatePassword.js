@@ -3,6 +3,7 @@ import { Form, Button, Spinner } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { auth } from "./firebase";
 import firebase from "firebase";
+import Header from "../Room/Header";
 
 const UpdatePassword = () => {
   let history = useHistory();
@@ -52,37 +53,40 @@ const UpdatePassword = () => {
   };
 
   return (
-    <div className="update-pwd-section">
-      {loading ? (
-        <Spinner animation="border" />
-      ) : (
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formBasicPassword1">
-            <Form.Label>Old password</Form.Label>
-            <Form.Control
-              value={oldPassword}
-              type="password"
-              placeholder="Old password"
-              onChange={(e) => setOldPassword(e.currentTarget.value)}
-            />
-          </Form.Group>
+    <>
+      <Header />
+      <div className="update-pwd-section">
+        {loading ? (
+          <Spinner animation="border" />
+        ) : (
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formBasicPassword1">
+              <Form.Label>Old password</Form.Label>
+              <Form.Control
+                value={oldPassword}
+                type="password"
+                placeholder="Old password"
+                onChange={(e) => setOldPassword(e.currentTarget.value)}
+              />
+            </Form.Group>
 
-          <Form.Group controlId="formBasicPassword2">
-            <Form.Label>New password</Form.Label>
-            <Form.Control
-              value={newPassword}
-              type="password"
-              placeholder="New password"
-              onChange={(e) => setNewPassword(e.currentTarget.value)}
-            />
-          </Form.Group>
+            <Form.Group controlId="formBasicPassword2">
+              <Form.Label>New password</Form.Label>
+              <Form.Control
+                value={newPassword}
+                type="password"
+                placeholder="New password"
+                onChange={(e) => setNewPassword(e.currentTarget.value)}
+              />
+            </Form.Group>
 
-          <Button variant="primary" type="submit">
-            change password
-          </Button>
-        </Form>
-      )}
-    </div>
+            <Button variant="primary" type="submit">
+              change password
+            </Button>
+          </Form>
+        )}
+      </div>
+    </>
   );
 };
 

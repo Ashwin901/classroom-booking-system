@@ -10,6 +10,7 @@ import UpdatePassword from "./Auth/UpdatePassword";
 import BookedRooms from "./Room/BookedRoom";
 import AvailableRooms from "./Room/AvaliableRooms";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import BookRoom from "./Room/BookRoom";
 
 const Routes = () => {
   return (
@@ -35,6 +36,9 @@ const Routes = () => {
         </Route>
         <Route path="/bookedRooms">
           <BookedRooms />
+        </Route>
+        <Route path="/bookRoom">
+          <BookRoom />
         </Route>
         <Route path="/availableRooms">
           <AvailableRooms />

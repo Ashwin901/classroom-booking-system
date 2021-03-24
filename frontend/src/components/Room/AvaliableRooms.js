@@ -3,9 +3,11 @@ import Header from "./Header";
 import "../../App.css";
 import { getAvailableRooms } from "../services";
 import { Card, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 const AvailableRooms = () => {
   const [rooms, setRooms] = useState([]);
+  let history = useHistory();
 
   useEffect(() => {
     async function getData() {
@@ -30,7 +32,7 @@ const AvailableRooms = () => {
                   <Card.Header>Available</Card.Header>
                   <Card.Body>
                     <Card.Title>Room: {room.roomNumber}</Card.Title>
-                    <Card.Text>{room.dept_name}</Card.Text>
+                    <Card.Text>Department: {room.dept_name}</Card.Text>
                     <Card.Text>
                       This room is available for students and clubs to conduct
                       and participate in activities.
@@ -39,7 +41,12 @@ const AvailableRooms = () => {
                       <br />
                       If any misconduct is observed strict action will be taken.
                     </Card.Text>
-                    <Button variant="primary">Book room</Button>
+                    <Button
+                      onClick={() => history.push("/bookRoom")}
+                      variant="primary"
+                    >
+                      Book room
+                    </Button>
                   </Card.Body>
                 </Card>
               );
