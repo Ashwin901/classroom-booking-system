@@ -26,7 +26,7 @@ const HomePage = () => {
     return () => {
       if (vantaEffect) vantaEffect.destroy();
     };
-  }, [vantaEffect]);
+  }, [vantaEffect, history]);
 
   const handleClick = (e) => {
     if (e.target.value === "register") {
@@ -46,12 +46,19 @@ const HomePage = () => {
         }}
       >
         {/* <i className="fa fa-graduation-cap fa-5x"></i> */}
-        <h2 style={{fontSize:'3rem', fontWeight:'bold'}}>Classroom Booking system</h2>
+        <h2 style={{ fontSize: "3rem", fontWeight: "bold" }}>
+          Classroom Booking system
+        </h2>
         <div>
-          <Button className="auth-button" value="register" onClick={handleClick} variant="dark">
+          <Button
+            className="auth-button"
+            value="register"
+            onClick={handleClick}
+            variant="dark"
+          >
             Register
           </Button>
-          <Button value="login" onClick={handleClick} variant="light">
+          <Button style={{color:'#ff3f81'}} value="login" onClick={handleClick} variant="light">
             Login
           </Button>
         </div>

@@ -16,8 +16,8 @@ const Header = () => {
   });
 
   return (
-    <Navbar bg="light" variant="light">
-      <Navbar.Brand as={Link} to="/dashboard">
+    <Navbar style={{backgroundColor:"#23153c", fontWeight:"bold"}} variant="dark">
+      <Navbar.Brand as={Link} to="/dashboard" style={{fontSize:'1.5rem'}}>
         CBS
       </Navbar.Brand>
       <Nav className="mr-auto">
@@ -33,7 +33,7 @@ const Header = () => {
       </Nav>
 
       <Link to="/profile">
-        <i style={{ color: "black" }} className="fa fa-user fa-2x"></i>
+        <i style={{ color: "#ff3f81" }} className="fa fa-user fa-2x"></i>
       </Link>
     </Navbar>
   );

@@ -1,15 +1,16 @@
 .app {
     font-family: 'Ubuntu', sans-serif;
     color: white;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: rgb(35,21,60);
+    background: linear-gradient(115deg, rgba(35,21,60,1) 50%, rgba(255,63,129,1) 95%); 
+    font-weight: bold;
 }
 
 /* https://cdn.pixabay.com/photo/2015/10/17/17/14/background-992850_1280.png */
 
 hr {
-    border: 1px solid white;
-    background-color: white;
+    border: 1px solid #ff3f81;
+    background-color: #ff3f81;
     width: 10rem;
     margin: 0.5rem 0 0.75rem 0;
 }
@@ -34,6 +35,10 @@ hr {
 }
 
 .auth-button{
+    background-color: #ff3f81;
+}
+
+.auth-button:hover{
     background-color: #ff3f81;
 }
 
@@ -110,7 +115,8 @@ hr {
 }
 
 .room-card {
-    color: black;
+    color: white;
+    background-color:#23153c;
     margin: 0.5rem;
 }
 

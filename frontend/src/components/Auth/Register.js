@@ -78,7 +78,7 @@ const Register = () => {
                 }}
               />
             </Form.Group>
-            <Button variant="dark" type="submit">
+            <Button variant="dark" className="auth-button" type="submit">
               Submit
             </Button>
           </Form>

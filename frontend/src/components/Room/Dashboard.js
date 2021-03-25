@@ -10,10 +10,10 @@ const Dashboard = () => {
     <div className="dashboard-section">
       <Header />
       <div className="dashboard-sub-section">
-        <i className="fa fa-graduation-cap fa-5x"></i>
+        <i style={{color:"#ff3f81"}} className="fa fa-graduation-cap fa-5x"></i>
         <Button
-          style={{ margin: "0.5rem" }}
-          variant="light"
+          style={{ margin: "0.5rem", backgroundColor:"#23153c", border:"none",outline:"none" }}
+          variant="dark"
           onClick={() => history.push("/bookRoom")}
         >
           Book a room

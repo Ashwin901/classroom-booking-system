@@ -80,7 +80,7 @@ const UpdatePassword = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="dark" className="auth-button" type="submit">
               change password
             </Button>
           </Form>

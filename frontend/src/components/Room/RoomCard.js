@@ -11,7 +11,7 @@ const RoomCard = ({ room, handleDelete,book}) => {
   };
 
   return (
-    <Card className="room-card">
+    <Card data-aos="fade-right" className="room-card">
       <Card.Header>Room details</Card.Header>
       <hr />
       <Card.Body>
@@ -33,6 +33,7 @@ const RoomCard = ({ room, handleDelete,book}) => {
           onClick={handleUpdate}
           style={{ marginRight: "0.5rem" }}
           size="sm"
+          className="auth-button"
           variant="dark"
         >
           Update

@@ -28,7 +28,7 @@ const AvailableRooms = () => {
           {rooms ? (
             rooms.map((room, i) => {
               return (
-                <Card key={i} style={{ margin: "1rem", color: "black" }}>
+                <Card data-aos="fade-left" key={i} style={{ margin: "1rem", color: "white", backgroundColor:"#23153c" }}>
                   <Card.Header>Available</Card.Header>
                   <Card.Body>
                     <Card.Title>Room: {room.roomNumber}</Card.Title>
@@ -43,7 +43,9 @@ const AvailableRooms = () => {
                     </Card.Text>
                     <Button
                       onClick={() => history.push("/bookRoom")}
-                      variant="primary"
+                      variant="dark"
+                      className="auth-button"
+                      style={{border:"none",outline:"none"}}
                     >
                       Book room
                     </Button>

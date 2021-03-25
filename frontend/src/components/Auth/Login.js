@@ -28,8 +28,8 @@ const Login = () => {
         <Spinner animation="border" />
       ) : (
         <>
-          <h2>Login</h2>
-          <hr />
+          <h2 >Login</h2>
+          <hr style={{backgroundColor:"#ff3f81"}} />
           <Form onSubmit={LogIn}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -54,7 +54,7 @@ const Login = () => {
                 }}
               />
             </Form.Group>
-            <Button variant="dark" type="submit">
+            <Button className="auth-button" variant="dark" type="submit">
               Submit
             </Button>
           </Form>
