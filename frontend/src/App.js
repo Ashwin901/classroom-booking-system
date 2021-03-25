@@ -1,12 +1,12 @@
 import Routes from "../src/components/Routes";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="app">
       <Routes />
     </div>
   );
-}
+};
 
 export default App;

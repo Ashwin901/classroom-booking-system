@@ -1,8 +1,11 @@
 .app {
     font-family: 'Ubuntu', sans-serif;
-    background-image: url("https://cdn.pixabay.com/photo/2015/10/17/17/14/background-992850_1280.png");
     color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+/* https://cdn.pixabay.com/photo/2015/10/17/17/14/background-992850_1280.png */
 
 hr {
     border: 1px solid white;
@@ -17,20 +20,21 @@ hr {
 
 /* Home page */
 .home-section {
+    padding: 0 2rem 0 2rem;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
+    flex-direction: row;
+    width: 100vw;
+    height:100vh;
+    /* justify-content: space-evenly; */
     align-items: center;
-}
-
-.home-section img {
-    height: 100px;
-    width: 100px;
 }
 
 .home-section button {
     margin: 1rem;
+}
+
+.auth-button{
+    background-color: #ff3f81;
 }
 
 
