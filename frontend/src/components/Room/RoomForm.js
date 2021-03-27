@@ -8,7 +8,8 @@ const RoomForm = ({ roomData, update, handleClose }) => {
   const [event, setEvent] = useState(update ? roomData.event : "");
   const [room, setRoom] = useState(update ? roomData.roomNumber : "");
   const [date, setDate] = useState(update ? roomData.event_date : "");
-
+  const [startTime, setStartTime] = useState(update ? roomData.start_time : "");
+  
   const [phoneNumber, setPhoneNumber] = useState(
     update ? roomData.phoneNumber : ""
   );
@@ -40,7 +41,8 @@ const RoomForm = ({ roomData, update, handleClose }) => {
         event.length > 0 &&
         room.length > 0 &&
         date.length > 0 &&
-        duration.length > 0
+        duration.length > 0 &&
+        startTime.length > 0
       )
     ) {
       alert("Please will all the details");
@@ -59,6 +61,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
         date,
         phoneNumber,
         duration,
+        startTime,
       };
       if (update) {
         //Update data in the database here
@@ -68,6 +71,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
       } else {
         //Add data to the db here
         await bookRoom(roomDetails);
+        console.log(roomDetails);
         alert("Room successfully booked");
       }
 
@@ -87,8 +91,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
             placeholder="Enter phone number"
           />
         </Form.Group>
-      </Form.Row>
-      <Form.Row>
+
         <Form.Group as={Col} controlId="formGridEvent">
           <Form.Label>Event</Form.Label>
           <Form.Control
@@ -97,6 +100,16 @@ const RoomForm = ({ roomData, update, handleClose }) => {
             type="text"
             placeholder="Enter the event"
             value={event}
+          />
+        </Form.Group>
+      </Form.Row>
+      <Form.Row>
+        <Form.Group as={Col} controlId="formGridDate">
+          <Form.Label>Start time</Form.Label>
+          <Form.Control
+            onChange={(e) => setStartTime(e.currentTarget.value)}
+            value={startTime}
+            type="time"
           />
         </Form.Group>
 
@@ -145,7 +158,12 @@ const RoomForm = ({ roomData, update, handleClose }) => {
       </Form.Row>
 
       <Form.Row>
-        <Button style={{backgroundColor:"#23153c", marginRight:'1rem'}} className="auth-button" variant="dark" type="submit">
+        <Button
+          style={{ backgroundColor: "#23153c", marginRight: "1rem" }}
+          className="auth-button"
+          variant="dark"
+          type="submit"
+        >
           {update ? "Update" : "Submit"}
         </Button>
         <Button onClick={handleClose} variant="dark" type="button">

@@ -30,7 +30,7 @@ Router.get("/bookedRooms/:username", (req, res) => {
 
 Router.post("/bookRoom", (req, res) => {
   const roomDetails = req.body;
-  const query = `INSERT INTO booking (room_id,roomNumber,name,email,phoneNumber,event,start_time,duration,event_date) values("${roomDetails.room_id}","${roomDetails.room}","${roomDetails.name}","${roomDetails.email}","${roomDetails.phoneNumber}","${roomDetails.event}","","${roomDetails.duration}","${roomDetails.date}")`;
+  const query = `INSERT INTO booking (room_id,roomNumber,name,email,phoneNumber,event,start_time,duration,event_date) values("${roomDetails.room_id}","${roomDetails.room}","${roomDetails.name}","${roomDetails.email}","${roomDetails.phoneNumber}","${roomDetails.event}","${roomDetails.startTime}","${roomDetails.duration}","${roomDetails.date}")`;
   db.query(query, (err, rows, fields) => {
     if (!err) {
       res.status(200).send();
@@ -76,7 +76,7 @@ Router.get("/roomNumbers", (req, res) => {
 
 Router.post("/updateRoom", (req, res) => {
   const roomDetails = req.body;
-  const query = `UPDATE booking set room_id="${roomDetails.room_id}",roomNumber="${roomDetails.room}",phoneNumber="${roomDetails.phoneNumber}",event="${roomDetails.event}",duration="${roomDetails.duration}",event_date="${roomDetails.date}"  where room_id="${roomDetails.previous_rid}"`;
+  const query = `UPDATE booking set room_id="${roomDetails.room_id}",roomNumber="${roomDetails.room}",phoneNumber="${roomDetails.phoneNumber}",event="${roomDetails.event}",duration="${roomDetails.duration}",event_date="${roomDetails.date}",start_time="${roomDetails.startTime}"  where room_id="${roomDetails.previous_rid}"`;
   db.query(query, (err, rows, fields) => {
     if (!err) {
       res.status(200).send();
