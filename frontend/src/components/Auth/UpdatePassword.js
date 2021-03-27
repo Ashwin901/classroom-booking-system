@@ -59,31 +59,40 @@ const UpdatePassword = () => {
         {loading ? (
           <Spinner animation="border" />
         ) : (
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicPassword1">
-              <Form.Label>Old password</Form.Label>
-              <Form.Control
-                value={oldPassword}
-                type="password"
-                placeholder="Old password"
-                onChange={(e) => setOldPassword(e.currentTarget.value)}
-              />
-            </Form.Group>
+          <>
+            <h2>Change Password</h2>
+            <hr />
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicPassword1">
+                <Form.Label>Old password</Form.Label>
+                <Form.Control
+                  value={oldPassword}
+                  type="password"
+                  placeholder="Old password"
+                  onChange={(e) => setOldPassword(e.currentTarget.value)}
+                />
+              </Form.Group>
 
-            <Form.Group controlId="formBasicPassword2">
-              <Form.Label>New password</Form.Label>
-              <Form.Control
-                value={newPassword}
-                type="password"
-                placeholder="New password"
-                onChange={(e) => setNewPassword(e.currentTarget.value)}
-              />
-            </Form.Group>
+              <Form.Group controlId="formBasicPassword2">
+                <Form.Label>New password</Form.Label>
+                <Form.Control
+                  value={newPassword}
+                  type="password"
+                  placeholder="New password"
+                  onChange={(e) => setNewPassword(e.currentTarget.value)}
+                />
+              </Form.Group>
 
-            <Button variant="dark" className="auth-button" style={{backgroundColor:"#23153c"}} type="submit">
-              change password
-            </Button>
-          </Form>
+              <Button
+                variant="dark"
+                className="auth-button"
+                style={{ backgroundColor: "#23153c" }}
+                type="submit"
+              >
+                change password
+              </Button>
+            </Form>
+          </>
         )}
       </div>
     </>

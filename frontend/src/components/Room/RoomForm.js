@@ -9,12 +9,9 @@ const RoomForm = ({ roomData, update, handleClose }) => {
   const [room, setRoom] = useState(update ? roomData.roomNumber : "");
   const [date, setDate] = useState(update ? roomData.event_date : "");
   const [startTime, setStartTime] = useState(update ? roomData.start_time : "");
-  
+  const [endTime, setEndTime] = useState(update ? roomData.end_time : "");
   const [phoneNumber, setPhoneNumber] = useState(
     update ? roomData.phoneNumber : ""
-  );
-  const [duration, setDuration] = useState(
-    update ? roomData.duration.toString() : ""
   );
   const [availableRooms, setAvailableRooms] = useState([]);
   useEffect(() => {
@@ -41,8 +38,8 @@ const RoomForm = ({ roomData, update, handleClose }) => {
         event.length > 0 &&
         room.length > 0 &&
         date.length > 0 &&
-        duration.length > 0 &&
-        startTime.length > 0
+        startTime.length > 0 &&
+        endTime.length > 0
       )
     ) {
       alert("Please will all the details");
@@ -60,7 +57,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
         room,
         date,
         phoneNumber,
-        duration,
+        endTime,
         startTime,
       };
       if (update) {
@@ -113,6 +110,17 @@ const RoomForm = ({ roomData, update, handleClose }) => {
           />
         </Form.Group>
 
+        <Form.Group as={Col} controlId="formGridDate">
+          <Form.Label>End time</Form.Label>
+          <Form.Control
+            onChange={(e) => setEndTime(e.currentTarget.value)}
+            value={endTime}
+            type="time"
+          />
+        </Form.Group>
+      </Form.Row>
+
+      <Form.Row>
         <Form.Group as={Col} controlId="formGridRoom">
           <Form.Label>Rooms</Form.Label>
           <Form.Control
@@ -134,25 +142,12 @@ const RoomForm = ({ roomData, update, handleClose }) => {
             )}
           </Form.Control>
         </Form.Group>
-      </Form.Row>
-
-      <Form.Row>
         <Form.Group as={Col} controlId="formGridDate">
           <Form.Label>Date</Form.Label>
           <Form.Control
             onChange={(e) => setDate(e.currentTarget.value)}
             value={date}
             type="date"
-          />
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridDuration">
-          <Form.Label>Duration</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => setDuration(e.currentTarget.value)}
-            value={duration}
-            placeholder="Enter the number of hours"
           />
         </Form.Group>
       </Form.Row>

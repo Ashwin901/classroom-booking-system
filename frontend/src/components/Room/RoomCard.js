@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 
-const RoomCard = ({ room, handleDelete,book}) => {
+const RoomCard = ({ room, handleDelete, book }) => {
   let history = useHistory();
   const date = new Date(room.event_date);
   const handleUpdate = () => {
@@ -27,28 +27,36 @@ const RoomCard = ({ room, handleDelete,book}) => {
           Event: {room.event}
           <br />
           Date: {date.toLocaleDateString()} <br />
-          Start time: {room.start_time} <br/>
-          Duration: {room.duration} <br />
+          Start time: {room.start_time} <br />
+          End time: {room.end_time} <br />
         </Card.Text>
-        {book ? "" : <Button
-          onClick={handleUpdate}
-          style={{ marginRight: "0.5rem" }}
-          size="sm"
-          className="auth-button"
-          variant="dark"
-        >
-          Update
-        </Button>}
+        {book ? (
+          ""
+        ) : (
+          <Button
+            onClick={handleUpdate}
+            style={{ marginRight: "0.5rem" }}
+            size="sm"
+            className="auth-button"
+            variant="dark"
+          >
+            Update
+          </Button>
+        )}
 
-        {book ? "" : <Button
-          onClick={() => handleDelete ? handleDelete(room.room_id) : console.log("wait")}
-          size="sm"
-          variant="danger"
-        >
-          Cancel
-        </Button>}
-        
-        
+        {book ? (
+          ""
+        ) : (
+          <Button
+            onClick={() =>
+              handleDelete ? handleDelete(room.room_id) : console.log("wait")
+            }
+            size="sm"
+            variant="danger"
+          >
+            Cancel
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );
