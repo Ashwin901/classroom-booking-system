@@ -1,8 +1,8 @@
 .app {
     font-family: 'Ubuntu', sans-serif;
     color: white;
-    background: rgb(35,21,60);
-    background: linear-gradient(115deg, rgba(35,21,60,1) 50%, rgba(255,63,129,1) 95%); 
+    background: rgb(35, 21, 60);
+    background: linear-gradient(115deg, rgba(35, 21, 60, 1) 50%, rgba(255, 63, 129, 1) 95%);
     font-weight: bold;
 }
 
@@ -25,7 +25,7 @@ hr {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height:100vh;
+    height: 100vh;
     /* justify-content: space-evenly; */
     align-items: center;
 }
@@ -34,11 +34,11 @@ hr {
     margin: 1rem;
 }
 
-.auth-button{
+.auth-button {
     background-color: #ff3f81;
 }
 
-.auth-button:hover{
+.auth-button:hover {
     background-color: #ff3f81;
 }
 
@@ -87,7 +87,7 @@ hr {
     align-items: center;
 }
 
-.dashboard-sub-section{
+.dashboard-sub-section {
     display: flex;
     flex-direction: column;
     height: 90vh;
@@ -116,7 +116,7 @@ hr {
 
 .room-card {
     color: white;
-    background-color:#23153c;
+    background-color: #23153c;
     margin: 0.5rem;
 }
 
@@ -145,4 +145,13 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.available-card {
+    box-shadow: 0px -1px 47px -7px rgba(255, 63, 129, 0.75);    
+    -webkit-box-shadow: 0px -1px 47px -7px rgba(255, 63, 129, 0.75);
+    -moz-box-shadow: 0px -1px 47px -7px rgba(255, 63, 129, 0.75);
+    margin: 1.5rem;
+    color: white;
+    background-color: #23153c;
 }
