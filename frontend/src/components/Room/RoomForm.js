@@ -145,7 +145,7 @@ const RoomForm = ({ roomData, update, handleClose }) => {
       </Form.Row>
 
       <Form.Row>
-        <Button style={{ marginRight: "1rem" }} className="auth-button" variant="dark" type="submit">
+        <Button style={{backgroundColor:"#23153c", marginRight:'1rem'}} className="auth-button" variant="dark" type="submit">
           {update ? "Update" : "Submit"}
         </Button>
         <Button onClick={handleClose} variant="dark" type="button">

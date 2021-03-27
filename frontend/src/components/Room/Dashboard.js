@@ -10,7 +10,7 @@ const Dashboard = () => {
     <div className="dashboard-section">
       <Header />
       <div className="dashboard-sub-section">
-        <i style={{color:"#ff3f81"}} className="fa fa-graduation-cap fa-5x"></i>
+        <i className="fa fa-graduation-cap fa-5x grad-icon"></i>
         <Button
           style={{ margin: "0.5rem", backgroundColor:"#23153c", border:"none",outline:"none" }}
           variant="dark"

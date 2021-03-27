@@ -54,7 +54,7 @@ const Login = () => {
                 }}
               />
             </Form.Group>
-            <Button className="auth-button" variant="dark" type="submit">
+            <Button className="auth-button" style={{backgroundColor:"#23153c"}} variant="dark" type="submit">
               Submit
             </Button>
           </Form>

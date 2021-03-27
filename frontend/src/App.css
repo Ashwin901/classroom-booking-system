@@ -2,7 +2,7 @@
     font-family: 'Ubuntu', sans-serif;
     color: white;
     background: rgb(35, 21, 60);
-    background: linear-gradient(115deg, rgba(35, 21, 60, 1) 50%, rgba(255, 63, 129, 1) 95%);
+    background: linear-gradient(150deg, rgba(35, 21, 60, 1) 50%, rgba(255, 63, 129, 1) 50%);
     font-weight: bold;
 }
 
@@ -17,6 +17,11 @@ hr {
 
 .title {
     font-weight: bold;
+}
+
+.header-nav{
+    font-weight: bold;
+    
 }
 
 /* Home page */

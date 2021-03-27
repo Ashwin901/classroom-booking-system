@@ -78,7 +78,7 @@ const Register = () => {
                 }}
               />
             </Form.Group>
-            <Button variant="dark" className="auth-button" type="submit">
+            <Button variant="dark" className="auth-button" style={{backgroundColor:"#23153c"}} type="submit">
               Submit
             </Button>
           </Form>
