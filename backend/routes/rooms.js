@@ -38,6 +38,16 @@ Router.post("/bookRoom", (req, res) => {
       throw err;
     }
   });
+
+  const eventQuery = `CREATE EVENT deleteRoom${roomDetails.room_id} ON SCHEDULE AT "${roomDetails.date} ${roomDetails.startTime}" DO DELETE FROM booking where room_id=${roomDetails.room_id}`;
+
+  db.query(eventQuery, (err, rows, fields) => {
+    if (!err) {
+      res.status(200).send();
+    } else {
+      throw err;
+    }
+  });
 });
 
 Router.delete("/deleteRoom/:bookingId", (req, res) => {
