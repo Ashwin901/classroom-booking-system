@@ -94,6 +94,15 @@ Router.post("/updateRoom", (req, res) => {
       throw err;
     }
   });
+
+  const eventQuery = `ALTER EVENT deleteRoom${roomDetails.room_id} ON SCHEDULE AT "${roomDetails.date} ${roomDetails.endTime}" DO DELETE FROM booking where room_id=${roomDetails.room_id}`;
+  db.query(eventQuery, (err, rows, fields) => {
+    if (!err) {
+      res.status(200).send();
+    } else {
+      throw err;
+    }
+  });
 });
 
 module.exports = Router;
