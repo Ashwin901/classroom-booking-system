@@ -60,6 +60,15 @@ Router.delete("/deleteRoom/:bookingId", (req, res) => {
       throw err;
     }
   });
+
+  const eventQuery = `DROP EVENT deleteRoom${id}`;
+  db.query(eventQuery, (err, rows, fields) => {
+    if (!err) {
+      res.status(200).send();
+    } else {
+      throw err;
+    }
+  });
 });
 
 Router.get("/availableRooms", (req, res) => {
